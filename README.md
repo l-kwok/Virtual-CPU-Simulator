@@ -5,11 +5,11 @@ A side project designed to simulate the computations of a central processing uni
 
 ### CPU Pipeline:
 
-While conventionally these steps are performed independently, for the sake of this simulator some steps will be combined together.
-
 1. Fetch/Decode (Fetch)
 2. Dispatch/Read/Execute (Execute)
 3. Writeback (Commit)
+
+*While conventionally these steps are performed independently, for the sake of this simulator some steps will be combined together.*
 
 ### Operation Encoding:
 
