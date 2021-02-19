@@ -1,6 +1,41 @@
 # Virtual-CPU-Simulator
 A side project designed to simulate the computations of a central processing unit. Instructions are 32-Bit.
 
+## Compiling:
+
+```shell
+$ make #build
+
+$ make clean #remove executables and object files
+```
+
+## Running:
+
+Two Sample Programs: Fibonacci and Factorial
+
+*See: Fibonacci.csv and Factorial.csv*
+
+```shell
+$ ./main
+```
+
+## Demo:
+
+```
+$ ./main
+Enter Program Name: factorial.csv
+Reading File factorial.csv
+
+Thank You. Processing...
+Enter a parameter for execution: 5
+
+Final Result is: 120
+Average Latency Per Insruction: 0.0714286ms
+Average Throughput Per Instruction: 9
+Enter Program Name: exit
+
+```
+
 ## Custom CPU Architecture:
 
 ### CPU Pipeline:
@@ -11,9 +46,18 @@ A side project designed to simulate the computations of a central processing uni
 
 *While conventionally these steps are performed independently, for the sake of this simulator some steps will be combined together.*
 
-### Operation Encoding:
-
-  *operation destinationRegister OperandSource1 OperandSource2*
+### Instruction Types:
+  1. Register: Operations between 2 registers 
+  2. Immediate: Operation between 1 register and an immediate value
+  3. Jump: Jumps execution to a specific point
+  4. Prompt: Similar to a load, requests user input to load a register
+  
+  Type | Code
+  ---- | ----
+  Register | 00
+  Immediate | 01
+  Jump | 10
+  Prompt | 11
 
 ### Instruction Format:
   
@@ -32,20 +76,6 @@ A side project designed to simulate the computations of a central processing uni
   *Prompt*
   
   | TYPE (2 Bits) | OPCODE (4 Bits) | Dest Reg (5 Bits) | User Prompt Immediate (21 Bits) |
-
-
-### Instruction Types:
-  1. Register: Operations between 2 registers 
-  2. Immediate: Operation between 1 register and an immediate value
-  3. Jump: Jumps execution to a specific point
-  4. Prompt: Similar to a load, requests user input to load a register
-  
-  Type | Code
-  ---- | ----
-  Register | 00
-  Immediate | 01
-  Jump | 10
-  Prompt | 11
   
 ### Supported Operations:
 
@@ -81,37 +111,4 @@ r0: Always holds 0 (READ ONLY)
 
 r2: for storing paramteres from Prompt Type instructions (READ ONLY, Prompt Type instructions may WRITE AND READ)
   
-## Compiling:
 
-```shell
-$ make #build
-
-$ make clean #remove executables and object files
-```
-
-## Running:
-
-Two Sample Programs: Fibonacci and Factorial
-
-*See: Fibonacci.csv and Factorial.csv*
-
-```shell
-$ ./main
-```
-
-## Demo:
-
-```
-$ ./main
-Enter Program Name: factorial.csv
-Reading File factorial.csv
-
-Thank You. Processing...
-Enter a parameter for execution: 5
-
-Final Result is: 120
-Average Latency Per Insruction: 0.0714286ms
-Average Throughput Per Instruction: 9
-Enter Program Name: exit
-
-```
