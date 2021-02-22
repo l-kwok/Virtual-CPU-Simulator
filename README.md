@@ -1,5 +1,12 @@
 # Virtual-CPU-Simulator
-A side project designed to simulate the computations of a central processing unit. Instructions are 32-Bit.
+A side project designed to simulate the computations of a central processing unit. The goal of this project was to break down each step of the CPU pipeline and simulate how each step would operate on a unique instruction set architechture. While I have not written a compiler, there are sample programs (in decimal CSV format) that perform basic numeric operations.
+
+Some Assumptions: 
+1. The CPU is single core and single threaded
+2. CPU instructions and memory are 32-bit
+3. Branching is supported but branch prediction is not
+4. Some pipeline steps are combined (into a single function call)
+5. Input files are assumed to be in a CSV file with Base 10 Decimal format 
 
 ## Compiling:
 
